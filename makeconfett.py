@@ -2,7 +2,6 @@ from random import randint
 import turtle
 import os
 import os.path
-# import confettmovement
 import tkinter as tk
 from win32api import GetSystemMetrics
 
@@ -29,6 +28,4 @@ for i in range(0, numofConfett):
     globals()[f"turts{i}"].shape(gifs[randint(0, len(gifs)-1)])
     Confett[i].penup()
     Confett[i].right(90)
-    Confett[i].speed(3)
-    Confett[i].forward(500)
-    wn.update()
+    Confett[i].speed(5)
