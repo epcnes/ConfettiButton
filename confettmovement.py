@@ -3,28 +3,31 @@ from turtle import forward, left, right, penup
 import time
 from makeconfett import Confett
 
-def sideways():
+def sideways(temp0):
     leftright = randint(1,5)
     penup()
     if leftright == 1:
-        Confett[0].left(180)
-        Confett[0].speed(5)
-        Confett[0].forward(randint(1,5))
-        Confett[0].right(90)
-        Confett[0].forward(100)
+        temp0.left(90)
+        temp0.speed(0)
+        temp0.forward(randint(1,5))
+        temp0.right(90)
+        temp0.forward(randint(1,25))
     elif leftright == 2:
-        Confett[0].right(180)
-        Confett[0].speed(5)
-        Confett[0].forward(randint(1,5))
-        Confett[0].left(90)
-        Confett[0].forward(100)
+        temp0.right(90)
+        temp0.speed(0)
+        temp0.forward(randint(1,5))
+        temp0.left(90)
+        temp0.forward(randint(1,25))
     else:
-        forward(100)
+        forward(randint(1,25))
 
-def movement(Confett):
+def movement(temp1):
     penup()
     while True:
-        time.sleep(0.1)
-        sideways()
+        time.sleep(0.01)
+        sideways(temp1)
+        position = list(temp1.pos())
+        print(position[1])
 
-movement(Confett[0])
+for i in range(0, len(Confett)-1):
+    movement(Confett[i])
