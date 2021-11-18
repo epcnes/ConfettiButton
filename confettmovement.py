@@ -13,15 +13,13 @@ def sideways(temp0):
         temp0.speed(0)
         temp0.forward(randint(2,10))
         temp0.right(90)
-        temp0.forward(randint(1,25))
+        temp0.forward(randint(5,50))
     elif leftright == 2:
         temp0.right(90)
         temp0.speed(0)
         temp0.forward(randint(2,10))
         temp0.left(90)
-        temp0.forward(randint(1,25))
-    else:
-        forward(randint(1,25))
+        temp0.forward(randint(5,50))
 
 def movement(temp1):
     penup()
@@ -31,7 +29,7 @@ def movement(temp1):
 
 def fall():
     for i in range(0, len(Confett)-1):
-        Confett[i].goto(randint(-width, width), winheight/2)
+        Confett[i].goto(randint(-width+100, width-100), winheight/2)
         Confett[i].showturtle()
         movement(Confett[i])
 
