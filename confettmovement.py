@@ -1,7 +1,7 @@
 from random import randint
 from turtle import forward, left, right, penup
 import time
-from makeconfett import Confett
+from makeconfett import Confett, winheight
 
 def sideways(temp0):
     leftright = randint(1,5)
@@ -23,7 +23,7 @@ def sideways(temp0):
 
 def movement(temp1):
     penup()
-    while True:
+    while (temp1.pos()[1] > -(winheight/2)):
         time.sleep(0.01)
         sideways(temp1)
         position = list(temp1.pos())

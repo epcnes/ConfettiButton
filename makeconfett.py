@@ -8,11 +8,11 @@ from win32api import GetSystemMetrics
 numofConfett = randint(5,10)
 Confett = []
 gifs = []
-width = GetSystemMetrics(0)
-height = GetSystemMetrics(1)
+winwidth = GetSystemMetrics(0)
+winheight = GetSystemMetrics(1)
 
 wn = turtle.Screen()
-wn.screensize(canvheight=int(height), canvwidth=int(width))
+wn.setup(width = winwidth, height=winheight)
 
 #getting gifs#
 path = os.getcwd() + "\\Coloured Confett"
