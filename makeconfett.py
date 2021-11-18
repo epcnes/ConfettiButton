@@ -24,6 +24,7 @@ for i in range(0, len(directlist)-1):
 for i in range(0, numofConfett-1):
     globals()[f"turts{i}"] = turtle.Turtle()
     Confett.append(globals()[f"turts{i}"])
+    Confett[i].hideturtle()
     Confett[i].speed(speed=0)
     globals()[f"turts{i}"].shape(gifs[randint(0, len(gifs)-1)])
     Confett[i].penup()
