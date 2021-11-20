@@ -11,17 +11,20 @@ gifs = []
 winwidth = GetSystemMetrics(0)
 winheight = GetSystemMetrics(1)
 
+root = tk.Tk()
+root.configure(width=winwidth, height=winheight)
+root.overrideredirect(True)
 wn = turtle.Screen()
-wn.setup(width = winwidth, height=winheight)
+wn.setup(height=winheight, width=winwidth)
 
 #getting gifs#
 path = os.getcwd() + "\\Coloured Confett"
 directlist = os.listdir(path)
-for i in range(0, len(directlist)-1):
+for i in range(0, len(directlist)):
     gifs.append(f"{path}//{directlist[i]}")
     wn.addshape(gifs[i])
 
-for i in range(0, numofConfett-1):
+for i in range(0, numofConfett):
     globals()[f"turts{i}"] = turtle.Turtle()
     Confett.append(globals()[f"turts{i}"])
     Confett[i].hideturtle()

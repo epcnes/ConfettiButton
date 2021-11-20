@@ -31,7 +31,7 @@ def movement(temp1):
 
 def fall():
     for i in range(0, len(Confett)-1):
-        Confett[i].goto(randint(-width, width), winheight/2)
+        Confett[i].goto(randint(-width+100, width-100), winheight/2)
         Confett[i].showturtle()
         movement(Confett[i])
 
