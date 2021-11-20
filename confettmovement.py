@@ -1,8 +1,10 @@
 from random import randint
+import turtle
 from turtle import forward, left, right, penup
 import time
-from makeconfett import Confett, winheight, winwidth
+from makewindow import Confett, winheight, winwidth, wn, gifs
 
+numofConfett = randint(2,5)
 width = int(winwidth/2)
 
 def sideways(temp0):
@@ -27,9 +29,19 @@ def movement(temp1):
         time.sleep(0.01)
         sideways(temp1)
 
+def genConfett():    
+    for i in range(0, numofConfett-1):
+        globals()[f"turts{i}"] = turtle.Turtle(wn)
+        Confett.append(globals()[f"turts{i}"])
+        Confett[i].hideturtle()
+        Confett[i].speed(speed=0)
+        globals()[f"turts{i}"].shape(gifs[randint(0, len(gifs)-1)])
+        Confett[i].penup()
+        Confett[i].right(90)
+
 def fall():
     for i in range(0, len(Confett)-1):
-        Confett[i].goto(randint(-width+100, width-100), winheight/2)
+        wn.create_window(randint(-width+100, width-100), winheight/2)
         Confett[i].showturtle()
         movement(Confett[i])
 
