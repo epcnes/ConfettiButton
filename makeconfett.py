@@ -1,7 +1,7 @@
 from random import randint
 import turtle
 import os
-import os.path
+from PIL import Image, ImageTk
 import tkinter as tk
 from win32api import GetSystemMetrics
 
@@ -14,21 +14,15 @@ winheight = GetSystemMetrics(1)
 root = tk.Tk()
 root.configure(width=winwidth, height=winheight)
 root.overrideredirect(True)
-wn = turtle.Screen()
-wn.setup(height=winheight, width=winwidth)
+wn = tk.Canvas(root, width=20, height=20, bg='black')
 
 #getting gifs#
 path = os.getcwd() + "\\Coloured Confett"
 directlist = os.listdir(path)
 for i in range(0, len(directlist)):
     gifs.append(f"{path}//{directlist[i]}")
-    wn.addshape(gifs[i])
 
 for i in range(0, numofConfett):
-    globals()[f"turts{i}"] = turtle.Turtle()
-    Confett.append(globals()[f"turts{i}"])
-    Confett[i].hideturtle()
-    Confett[i].speed(speed=0)
-    globals()[f"turts{i}"].shape(gifs[randint(0, len(gifs)-1)])
-    Confett[i].penup()
-    Confett[i].right(90)
+    img = ImageTk.PhotoImage(Image.open(gifs[randint(0, len(gifs)-1)]))
+    globals()[f"confetts{i}"] = wn.create_image(randint(-winwidth+100, winwidth-100), winheight/2)
+    Confett.append(globals()[f"confetts{i}"])

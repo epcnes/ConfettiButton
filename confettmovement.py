@@ -1,9 +1,9 @@
 from random import randint
 from turtle import forward, left, right, penup
 import time
-from makeconfett import Confett, winheight, winwidth
+from makewindow import Confett, winheight, winwidth
 
-width = int(winwidth/2)
+width = winwidth/2
 
 def sideways(temp0):
     leftright = randint(1,5)
