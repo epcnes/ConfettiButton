@@ -1,7 +1,7 @@
 from random import randint
 from turtle import forward, left, right, penup
 import time
-from makewindow import Confett, winheight, winwidth
+from makeconfett import Confett, winheight, winwidth
 
 width = winwidth/2
 
