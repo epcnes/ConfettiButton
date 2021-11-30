@@ -24,5 +24,5 @@ for i in range(0, len(directlist)):
 
 for i in range(0, numofConfett):
     img = ImageTk.PhotoImage(Image.open(gifs[randint(0, len(gifs)-1)]))
-    globals()[f"confetts{i}"] = wn.create_image(x=randint(-winwidth+100, winwidth-100), y=winheight/2)
+    globals()[f"confetts{i}"] = turtle.Turtle()
     Confett.append(globals()[f"confetts{i}"])
