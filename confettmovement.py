@@ -5,34 +5,30 @@ from makeconfett import Confett, winheight, winwidth
 
 width = winwidth/2
 
-def sideways(temp0):
-    leftright = randint(1,5)
-    penup()
-    if leftright == 1:
-        temp0.left(90)
-        temp0.speed(0)
-        temp0.forward(randint(2,10))
-        temp0.right(90)
-        temp0.forward(randint(1,25))
-    elif leftright == 2:
-        temp0.right(90)
-        temp0.speed(0)
-        temp0.forward(randint(2,10))
-        temp0.left(90)
-        temp0.forward(randint(1,25))
-    else:
-        forward(randint(1,25))
-
 def movement(temp1):
-    penup()
+    temp1.penup()
+    temp1.right(90)
+    temp1.speed(0)
     while (temp1.pos()[1] > -(winheight/2)):
+        side = randint(0,5)
         time.sleep(0.01)
-        sideways(temp1)
+        if (side == 3):
+            #go right#
+            temp1.left(90)
+            temp1.forward(randint(1,5))
+            temp1.right(90)
+            temp1.forward(randint(10, 25))
+        elif (side == 5):
+            temp1.right(90)
+            temp1.forward(randint(1,5))
+            temp1.left(90)
+            temp1.forward(randint(10, 25))
+        else:
+            temp1.forward(randint(10, 25))
 
-def fall():
-    for i in range(0, len(Confett)-1):
-        Confett[i].goto(randint(-width+100, width-100), winheight/2)
-        Confett[i].showturtle()
-        movement(Confett[i])
+def fall(confetti):
+    confetti.goto(0, winheight/2)
+    confetti.showturtle()
+    movement(confetti)
 
-fall()
+fall(Confett)
