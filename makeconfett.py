@@ -15,7 +15,8 @@ root.config(highlightbackground='black')
 root.wm_attributes('-transparentcolor', 'black')
 root.overrideredirect(True)
 
-canvas = tk.Canvas(master=root, width=winwidth, height=winheight)
+canvas = tk.Canvas(master=root, width=winwidth, height=winheight, highlightthickness=0)
+
 canvas.pack()
 
 wn = turtle.TurtleScreen(canvas)

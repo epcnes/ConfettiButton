@@ -9,7 +9,7 @@ def movement(temp1):
     temp1.penup()
     temp1.right(90)
     temp1.speed(0)
-    while (temp1.pos()[1] > -(winheight/2)):
+    while (temp1.pos()[1] > -(winheight/2)-750):
         side = randint(0,5)
         time.sleep(0.01)
         if (side == 3):
@@ -32,3 +32,4 @@ def fall(confetti):
     movement(confetti)
 
 fall(Confett)
+print(Confett.shape())
