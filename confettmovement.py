@@ -3,7 +3,7 @@ from turtle import forward, left, right, penup
 import time
 from makeconfett import Confett, winheight, winwidth
 
-width = int(winwidth/2)
+width = winwidth/2
 
 def sideways(temp0):
     leftright = randint(1,5)
@@ -31,7 +31,7 @@ def movement(temp1):
 
 def fall():
     for i in range(0, len(Confett)-1):
-        Confett[i].goto(randint(-width, width), winheight/2)
+        Confett[i].goto(randint(-width+100, width-100), winheight/2)
         Confett[i].showturtle()
         movement(Confett[i])
 
