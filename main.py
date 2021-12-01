@@ -11,7 +11,6 @@ gifs = []
 winwidth = root.winfo_screenwidth()
 winheight = root.winfo_screenwidth()
 width = winwidth/2
-sep = "\\"
 
 #make window#
 root.title("Confetti")
@@ -29,13 +28,7 @@ Confett.hideturtle()
 Confett.penup()
 
 #getting gifs#
-path = os.getcwd()
-path = path.split(sep)
-if len(path) == 1:
-    path = sep.join(path)
-    path = path + "ignore this unless you wanna see my tears\\Coloured Confett"
-else:
-    path = sep.join(path) + "\\Coloured Confett"
+path = os.getcwd() + "\\Coloured Confett"
 directlist = os.listdir(path)
 
 for i in range(0, len(directlist)):
