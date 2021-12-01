@@ -11,6 +11,7 @@ gifs = []
 winwidth = root.winfo_screenwidth()
 winheight = root.winfo_screenwidth()
 width = winwidth/2
+sep = "\\"
 
 #make window#
 root.title("Confetti")
@@ -29,15 +30,14 @@ Confett.penup()
 
 #getting gifs#
 path = os.getcwd()
-sep = "\\"
 path = path.split(sep)
-if path[len(path)-1] == "build":
-    for i in (0, len(path)-3):
-        path = sep.join(path[i])
-    path = path+"\\Coloured Confett"
-else:
+if len(path) == 1:
     path = sep.join(path)
+    path = path + "ignore this unless you wanna see my tears\\Coloured Confett"
+else:
+    path = sep.join(path) + "\\Coloured Confett"
 directlist = os.listdir(path)
+
 for i in range(0, len(directlist)):
     gifs.append(f"{path}\\{directlist[i]}")
     wn.addshape(gifs[i])
@@ -47,7 +47,7 @@ Confett.shape(gifs[randint(0, len(gifs)-1)])
 def movement(temp1):
     temp1.right(90)
     temp1.speed(0)
-    while (temp1.pos()[1] > -(winheight/2)-750):
+    while (temp1.pos()[1] > -(winheight/2)):
         side = randint(0,5)
         time.sleep(0.01)
         if (side == 3):
@@ -65,7 +65,7 @@ def movement(temp1):
             temp1.forward(randint(10, 50))
 
 def fall(confetti):
-    confetti.goto(0, winheight/2)
+    confetti.goto(0, 1750)
     confetti.showturtle()
     movement(confetti)
 
