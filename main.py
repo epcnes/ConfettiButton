@@ -4,16 +4,15 @@ import time
 import turtle
 import os
 import tkinter as tk
-from win32api import GetSystemMetrics
 
 #defining things#
+root = tk.Tk()
 gifs = []
-winwidth = GetSystemMetrics(0)
-winheight = GetSystemMetrics(1)
+winwidth = root.winfo_screenwidth()
+winheight = root.winfo_screenwidth()
 width = winwidth/2
 
 #make window#
-root = tk.Tk()
 root.title("Confetti")
 root.config(highlightbackground='black')
 root.wm_attributes('-transparentcolor', 'black')
@@ -29,7 +28,15 @@ Confett.hideturtle()
 Confett.penup()
 
 #getting gifs#
-path = os.getcwd() + "\\Coloured Confett"
+path = os.getcwd()
+sep = "\\"
+path = path.split(sep)
+if path[len(path)-1] == "build":
+    for i in (0, len(path)-3):
+        path = sep.join(path[i])
+    path = path+"\\Coloured Confett"
+else:
+    path = sep.join(path)
 directlist = os.listdir(path)
 for i in range(0, len(directlist)):
     gifs.append(f"{path}\\{directlist[i]}")
