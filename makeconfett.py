@@ -1,7 +1,6 @@
 from random import randint
 import turtle
 import os
-from PIL import Image, ImageTk
 import tkinter as tk
 from win32api import GetSystemMetrics
 
@@ -9,6 +8,7 @@ gifs = []
 winwidth = GetSystemMetrics(0)
 winheight = GetSystemMetrics(1)
 
+#make window#
 root = tk.Tk()
 root.title("Confetti")
 root.config(highlightbackground='black')
@@ -16,7 +16,6 @@ root.wm_attributes('-transparentcolor', 'black')
 root.overrideredirect(True)
 
 canvas = tk.Canvas(master=root, width=winwidth, height=winheight, highlightthickness=0)
-
 canvas.pack()
 
 wn = turtle.TurtleScreen(canvas)
